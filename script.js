@@ -197,7 +197,7 @@ btn.addEventListener('click', () => {
     }
     
     // Community Dragon Champion Image
-    const championImageUrl = `https://cdn.communitydragon.org/latest/champion/${randomChampionName}/square`;
+    const championImageUrl = `https://ddragon.leagueoflegends.com/cdn/14.24.1/img/champion/${randomChampionName}.png`;
     
     championImage.src = championImageUrl;
     championImage.style.display = 'block';
@@ -236,12 +236,12 @@ btn.addEventListener('click', () => {
                 }
                 
                 // Community Dragon CDN Item Images
-                const itemImageUrl = `https://cdn.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/${finalItem.id}.png`;
+                const itemImageUrl = `https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/${finalItem.id}.png`;
                 
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'item';
                 itemDiv.innerHTML = `
-                    <img src="${itemImageUrl}" alt="${finalItem.name}" onerror="this.src='https://ddragon.leagueoflegends.com/cdn/14.24.1/img/item/${finalItem.id}.png'">
+                    <img src="${itemImageUrl}" alt="${finalItem.name}">
                     <span>${finalItem.name}</span>
                 `;
                 
