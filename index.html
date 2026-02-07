@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <title>
-            League Of Legends Off Meta Picker/Randomizer! 
-        </title>
-        <link rel="stylesheet" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-         <div class="container"> 
-            <h1>Off Meta Pick Generator</h1>
-            <button id="generateBtn">Get Random Pick</button>
-            <div id="result" class="result hidden">
-                <h2 id="champion"></h2>
-                <p id="lane"></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Of Legends Off Meta Picker/Randomizer!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Off Meta Pick Generator</h1>
+        <div id="result" class="result hidden">
+            <div class="champion-display">
+                <img id="mainRuneIcon" class="main-rune-icon" alt="Main Rune" style="display: none;">
+                <img id="championImage" alt="Champion" style="display: none;">
+                <img id="secondaryRuneIcon" class="secondary-rune-icon" alt="Secondary Rune" style="display: none;">
             </div>
-         </div>
-         <script src="script.js"></script>
-    </body>
+            <h2 id="champion"></h2>
+            <p><strong>Lane:</strong> <span id="lane"></span></p>
+            <p><strong>Rune:</strong> <span id="rune"></span></p>
+            
+            <div id="buildSection" class="build-section" style="display: none;">
+                <h3>Build: <span id="buildType"></span></h3>
+                <div id="itemsContainer" class="items-container"></div>
+            </div>
+            
+            <div id="noBuildSection" class="no-build-section" style="display: none;">
+                <div class="up-to-you">Up to you</div>
+            </div>
+        </div>
+        <button id="generateBtn" class="roll-btn">Roll</button>
+    </div>
+    <script src="script.js"></script>
+</body>
 </html>

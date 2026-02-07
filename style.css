@@ -11,6 +11,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .container {
@@ -19,6 +20,8 @@ body {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    max-width: 800px;
+    width: 90%;
 }
 
 h1 {
@@ -26,18 +29,22 @@ h1 {
     color: #333;
 }
 
-#generateBtn {
+.roll-btn {
     background: #667eea;
     color: white;
     border: none;
-    padding: 15px 40px;
-    font-size: 18px;
+    padding: 15px 60px;
+    font-size: 20px;
+    font-weight: bold;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s;
+    margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-#generateBtn:hover {
+.roll-btn:hover {
     background: #764ba2;
     transform: scale(1.05);
 }
@@ -59,7 +66,126 @@ h1 {
     margin-bottom: 10px;
 }
 
-#lane {
-    font-size: 20px;
+.champion-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.main-rune-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #667eea;
+}
+
+#championImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #667eea;
+}
+
+.secondary-rune-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #764ba2;
+    opacity: 0.8;
+}
+
+.result p {
+    font-size: 18px;
     color: #666;
+    margin: 10px 0;
+}
+
+.result strong {
+    color: #333;
+}
+
+.build-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.build-section h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.items-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    border: 2px solid #667eea;
+}
+
+.item span {
+    font-size: 12px;
+    text-align: center;
+    max-width: 100px;
+    word-wrap: break-word;
+}
+
+.arrow {
+    font-size: 24px;
+    color: #667eea;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* UP TO YOU EPIC STYLING */
+.no-build-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.up-to-you {
+    font-size: 48px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: linear-gradient(45deg, #ffd700, #764ba2, #ffd700, #9370DB, #ffd700);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 
+                 0 0 40px rgba(118, 75, 162, 0.3);
+    padding: 20px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
