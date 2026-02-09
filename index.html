@@ -30,6 +30,28 @@
         </div>
         <button id="generateBtn" class="roll-btn">Roll</button>
     </div>
+
+    <div id="chatWidget">
+        <button id="chatButton" class="chat-button">💬 Chat</button>
+        
+        <div id="chatWindow" class="chat-window hidden">
+            <div class="chat-header">
+                <span>LoL Build Assistant</span>
+                <button id="closeChat" class="close-button">✕</button>
+            </div>
+            
+            <div id="chatMessages" class="chat-messages">
+                <div class="bot-message">
+                    Hi! Ich kann dir Fragen zu Off-Meta Builds beantworten. Was möchtest du wissen?
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Stelle eine Frage..." />
+                <button id="sendButton">Senden</button>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

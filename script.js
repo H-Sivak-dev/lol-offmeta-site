@@ -265,3 +265,61 @@ btn.addEventListener('click', () => {
     
     result.classList.remove('hidden');
 });
+// Chat Widget Logic
+const chatButton = document.getElementById('chatButton');
+const chatWindow = document.getElementById('chatWindow');
+const closeChat = document.getElementById('closeChat');
+const chatInput = document.getElementById('chatInput');
+const sendButton = document.getElementById('sendButton');
+const chatMessages = document.getElementById('chatMessages');
+
+chatButton.addEventListener('click', () => {
+    chatWindow.classList.toggle('hidden');
+});
+
+closeChat.addEventListener('click', () => {
+    chatWindow.classList.add('hidden');
+});
+
+sendButton.addEventListener('click', sendMessage);
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+
+async function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+    
+    // User message anzeigen
+    const userDiv = document.createElement('div');
+    userDiv.className = 'user-message';
+    userDiv.textContent = message;
+    chatMessages.appendChild(userDiv);
+    
+    chatInput.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // An Backend senden
+    try {
+        const response = await fetch('/.netlify/functions/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message })
+        });
+        
+        const data = await response.json();
+        
+        // Bot response anzeigen
+        const botDiv = document.createElement('div');
+        botDiv.className = 'bot-message';
+        botDiv.textContent = data.reply;
+        chatMessages.appendChild(botDiv);
+        
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    } catch (error) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'bot-message';
+        errorDiv.textContent = 'Fehler beim Senden der Nachricht.';
+        chatMessages.appendChild(errorDiv);
+    }
+}
