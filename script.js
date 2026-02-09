@@ -299,6 +299,13 @@ async function sendMessage() {
     chatInput.value = '';
     chatMessages.scrollTop = chatMessages.scrollHeight;
     
+    // Typing Indicator anzeigen
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'typing-indicator';
+    typingDiv.innerHTML = '<span></span><span></span><span></span>';
+    chatMessages.appendChild(typingDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
     // An Backend senden
     try {
         const response = await fetch('/.netlify/functions/chat', {
@@ -309,6 +316,9 @@ async function sendMessage() {
         
         const data = await response.json();
         
+        // Typing Indicator entfernen
+        typingDiv.remove();
+        
         // Bot response anzeigen
         const botDiv = document.createElement('div');
         botDiv.className = 'bot-message';
@@ -317,6 +327,9 @@ async function sendMessage() {
         
         chatMessages.scrollTop = chatMessages.scrollHeight;
     } catch (error) {
+        // Typing Indicator entfernen bei Fehler
+        typingDiv.remove();
+        
         const errorDiv = document.createElement('div');
         errorDiv.className = 'bot-message';
         errorDiv.textContent = 'Fehler beim Senden der Nachricht.';
